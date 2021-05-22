@@ -1,6 +1,6 @@
 {
   "name": "zhurong-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -17,6 +17,11 @@
     "name": "T-Roc",
     "email": "lxp_work@163.com"
   },
+  "keywords": [
+    "zhurong-cli",
+    "zr",
+    "脚手架"
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
