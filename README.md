@@ -1,13 +1,23 @@
+# 搭建一个简单的脚手架
 
+## 安装
+
+```shell
+# install it globally
+$ npm install -g zhurong-cli
+
+# or yarn
+$ yarn global add zhurong-cli
 ```
-roc-cli
-├─ README.md
-├─ bin
-│  └─ cli.js
-├─ lib
-│  ├─ Creator.js
-│  ├─ create.js
-│  └─ request.js
-├─ package-lock.json
-└─ package.json
+
+## 使用 
+
+### Quick Start 
+
+```shell
+$ zr create <name> [-f|--force]
 ```
+
+### Options
+
+- `-f, --force`: Overwrite if the target exists

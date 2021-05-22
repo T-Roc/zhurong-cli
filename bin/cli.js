@@ -1,24 +1,20 @@
 #! /usr/bin/env node
 
-// 1. 配置可执行命令
-// 2. 命令行交互
-// 3. 模版下载
-// 4. 根据用户选择动态生产内容
-
 const program = require('commander');
-const chalk  = require('chalk');
 const figlet = require('figlet');
+const chalk = require('chalk');
 
-// 核心功能 1.创建项目 2.更改配置文件 3.UI界面 @vue/ui
 
 program
   .command('create <app-name>')
   .description('create a new project')
   .option('-f, --force', 'overwrite target directory if it exist') // 是否强制创建，当文件夹已经存在
   .action((name, options) => {
+    // 在 create.js 中执行创建任务
     require('../lib/create.js')(name, options)
   })
 
+  // 配置 config 命令
 program
   .command('config [value]')
   .description('inspect and modify the config')
@@ -29,6 +25,7 @@ program
     console.log(value, options)
   })
 
+// 配置 ui 命令
 program
   .command('ui')
   .description('start add open roc-cli ui')
@@ -38,22 +35,20 @@ program
   })
 
 program
+  // 配置版本号信息
   .version(`v${require('../package.json').version}`)
   .usage('<command> [option]')
 
 program
   .on('--help', () => {
-    console.log()
-    console.log(figlet.textSync('zhurong', {
+    console.log('\r\n' + figlet.textSync('zhurong', {
       font: 'Ghost',
       horizontalLayout: 'default',
       verticalLayout: 'default',
       width: 80,
       whitespaceBreak: true
     }));
-    console.log()
-    console.log(`Run ${chalk.cyan(`roc <command> --help`)} show details`)
-    console.log()
+    console.log(`\r\nRun ${chalk.cyan(`zr <command> --help`)} for detailed usage of given command\r\n`)
   })
 
 // 解析用户执行命令传入参数
